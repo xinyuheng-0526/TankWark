@@ -1,15 +1,23 @@
 import java.awt.*;
-
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 public class sd {
     public static void main(String[] args) {
-        Frame frame=new Frame();
-        Panel panel=new Panel();
-        frame.setLayout(null);
-        frame.setBounds(300,300,500,500);
-        frame.setBackground(new Color(66, 152, 43));
-        panel.setBounds(50,50,400,400);
-        panel.setBackground(new Color(157, 50, 50));
-        frame.add(panel);
-        frame.setVisible(true);
+      new windowframe();
+    }
+}
+class windowframe extends Frame{
+    public windowframe(){
+         setBounds(200,200,300,400);
+         setBackground(Color.red);
+         setVisible(true);
+         addWindowListener(new mywindowlistener());
+    }
+    class mywindowlistener extends WindowAdapter{
+        @Override
+        public void windowClosing(WindowEvent e) {
+            System.exit(0);
+        }
     }
 }
